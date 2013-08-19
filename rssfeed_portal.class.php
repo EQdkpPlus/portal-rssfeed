@@ -75,40 +75,39 @@ class rssfeed_portal extends portal_generic {
 					height:200px;
 					overflow: auto;
 				}
-				#rssfeed_module a{
+				#rssfeed_module a {
 					color:#FF9900;
-					font-size:11px;
+					margin-bottom: 3px;
 				}
 				#rssfeed_module .rss_readmore{
-					color:#f5f5f5;
 					font-size:10px;
 					margin-bottom: 5px;
 				}
 				#rssfeed_module .date{
-					margin:0;
 					color:#999999;
 					font-size:9px;
+					margin: 3px 0 3px 0;
 				}
 				#rssfeed_module .description{
 					margin:0;
 					padding:0;
 				}
-				#rssfeed_module .description p{
+				#rssfeed_module .description p {
 					font-size:10px;
 				}
+				.mf-viral {display:none;}
 				.loading{
-					margin:20% 0% 0% 40%;
+					margin:25% 0% 0% 25%;
 					float:left;
 				}");
 			$output = '<div id="rssfeed_module"></div>';
 
 			// JS Part
-			$this->jquery->rssFeeder('rssfeed_module', $this->root_path."portal/rssfeed/load.php".$this->SID."&loadrss=true", $pk_rssfeed_limit, $pk_rssfeed_length);
+			$this->jquery->rssFeeder('rssfeed_module', $this->server_path."portal/rssfeed/load.php".$this->SID."&loadrss=true", $pk_rssfeed_limit, $pk_rssfeed_length);
 		}else{
 			$output  = $this->user->lang('pk_rssfeed_nourl');
 		}
 		return $output;
 	}
 }
-if(version_compare(PHP_VERSION, '5.3.0', '<')) registry::add_const('short_rssfeed_portal', rssfeed_portal::__shortcuts());
 ?>
