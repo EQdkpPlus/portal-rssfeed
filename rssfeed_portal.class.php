@@ -31,6 +31,7 @@ class rssfeed_portal extends portal_generic {
 		'name'			=> 'RSS Feed',
 		'version'		=> '2.0.0',
 		'author'		=> 'WalleniuM',
+		'icon'			=> 'fa-rss-square',
 		'contact'		=> EQDKP_PROJECT_URL,
 		'description'	=> 'Shows an RSS Feed in portal',
 	);
