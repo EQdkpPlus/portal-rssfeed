@@ -24,10 +24,10 @@ $lang = array(
 	'rssfeed'				=> 'RSS Feeds',
 	'rssfeed_name'			=> 'RSS Feed Module',
 	'rssfeed_desc'			=> 'Shows an RSS Feed in portal',
-	'pk_rssfeed_limit'		=> 'Amount of feed items to show',
-	'pk_rssfeed_url'		=> 'URL of the RSS Feed',
+	'rssfeed_f_limit'		=> 'Amount of feed items to show',
+	'rssfeed_f_url'			=> 'URL of the RSS Feed',
 	'pk_rssfeed_nourl'		=> 'Please setup a Feed first',
-	'pk_rssfeed_length'		=> 'Amount of characters from feed to show',
-	'pk_rssfeed_length_h'	=> 'If the feed-module becomes extreme wide, the problem may be a destroyed HTML-Tag, because of the limited characters. If there are many characters without a white-space in that tag, there will be no new line and so the whole left-column becomes very wide.',
+	'rssfeed_length'		=> 'Amount of characters from feed to show',
+	'rssfeed_f_help_length'	=> 'If the feed-module becomes extreme wide, the problem may be a destroyed HTML-Tag, because of the limited characters. If there are many characters without a white-space in that tag, there will be no new line and so the whole left-column becomes very wide.',
 );
 ?>

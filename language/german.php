@@ -24,10 +24,10 @@ $lang = array(
 	'rssfeed'				=> 'RSS Feeds',
 	'rssfeed_name'			=> 'RSS Feed Module',
 	'rssfeed_desc'			=> 'Zeigt einen RSS Feed im Portal an',
-	'pk_rssfeed_limit'		=> 'Anzahl der Feedeinträge zur Anzeige',
-	'pk_rssfeed_url'		=> 'URL des RSS Feeds',
+	'rssfeed_f_limit'		=> 'Anzahl der Feedeinträge zur Anzeige',
+	'rssfeed_f_url'			=> 'URL des RSS Feeds',
 	'pk_rssfeed_nourl'		=> 'Es wurde kein Feed angegeben',
-	'pk_rssfeed_length'		=> 'Anzahl Zeichen vom Feed zur Anzeige',
-	'pk_rssfeed_length_h'	=> 'Wenn das Feed-Modul extrem breit wird, liegt es unter Umständen daran, dass durch die Anzahl Zeichen ein HTML-Tag zerstört wird. Wenn in dem Tag sehr viele Zeichen stehen, kann kein Zeilenumbruch erfolgen und die linke Spalte wird sehr breit.',
+	'rssfeed_f_length'		=> 'Anzahl Zeichen vom Feed zur Anzeige',
+	'rssfeed_f_help_length'	=> 'Wenn das Feed-Modul extrem breit wird, liegt es unter Umständen daran, dass durch die Anzahl Zeichen ein HTML-Tag zerstört wird. Wenn in dem Tag sehr viele Zeichen stehen, kann kein Zeilenumbruch erfolgen und die linke Spalte wird sehr breit.',
 );
 ?>

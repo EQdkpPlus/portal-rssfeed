@@ -21,54 +21,42 @@ if ( !defined('EQDKP_INC') ){
 }
 
 class rssfeed_portal extends portal_generic {
-	public static function __shortcuts() {
-		$shortcuts = array('user', 'core', 'pfh', 'pm', 'jquery', 'tpl', 'config');
-		return array_merge(parent::$shortcuts, $shortcuts);
-	}
 
-	protected $path		= 'rssfeed';
-	protected $data		= array(
+	protected static $path		= 'rssfeed';
+	protected static $data		= array(
 		'name'			=> 'RSS Feed',
 		'version'		=> '2.0.0',
 		'author'		=> 'WalleniuM',
 		'icon'			=> 'fa-rss-square',
 		'contact'		=> EQDKP_PROJECT_URL,
 		'description'	=> 'Shows an RSS Feed in portal',
+		'lang_prefix'	=> 'rssfeed_'
 	);
-	protected $positions = array('left1', 'left2', 'right');
+	protected static $positions = array('left1', 'left2', 'right');
 	protected $settings	= array(
-		'pk_rssfeed_url'	=> array(
-			'name'		=> 'pk_rssfeed_url',
-			'language'	=> 'pk_rssfeed_url',
-			'property'	=> 'text',
+		'url'	=> array(
+			'type'		=> 'text',
 			'size'		=> '40',
-			'help'		=> '',
 		),
-		'pk_rssfeed_limit'	=> array(
-			'name'		=> 'pk_rssfeed_limit',
-			'language'	=> 'pk_rssfeed_limit',
-			'property'	=> 'text',
+		'limit'	=> array(
+			'type'		=> 'text',
 			'size'		=> '5',
-			'help'		=> '',
 		),
-		'pk_rssfeed_length'	=> array(
-			'name'		=> 'pk_rssfeed_length',
-			'language'	=> 'pk_rssfeed_length',
-			'property'	=> 'text',
+		'length'	=> array(
+			'type'		=> 'text',
 			'size'		=> '3',
-			'help'		=> 'pk_rssfeed_length_h',
 		)
 	);
-	protected $install	= array(
+	protected static $install	= array(
 		'autoenable'		=> '1',
 		'defaultposition'	=> 'left2',
 		'defaultnumber'		=> '9',
 	);
 
 	public function output() {
-		if($this->config->get('pk_rssfeed_url')){
-			$pk_rssfeed_limit = ($this->config->get('pk_rssfeed_limit')) ? $this->config->get('pk_rssfeed_limit') : 5;
-			$pk_rssfeed_length = ($this->config->get('pk_rssfeed_length')) ? $this->config->get('pk_rssfeed_length') : 80;
+		if($this->config('url')){
+			$pk_rssfeed_limit = ($this->config('limit')) ? $this->config('limit') : 5;
+			$pk_rssfeed_length = ($this->config('length')) ? $this->config('length') : 80;
 			$this->tpl->add_css("
 				#rssfeed_module{
 					margin:0;
