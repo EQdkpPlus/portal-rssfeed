@@ -52,6 +52,8 @@ class rssfeed_portal extends portal_generic {
 		'defaultposition'	=> 'left2',
 		'defaultnumber'		=> '9',
 	);
+	
+	protected static $apiLevel = 20;
 
 	public function output() {
 		if($this->config('url')){
