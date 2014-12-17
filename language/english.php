@@ -1,6 +1,6 @@
 <?php
 /*	Project:	EQdkp-Plus
- *	Package:	RSS Feed Portal Module
+ *	Package:	EQdkp-Plus Language File
  *	Link:		http://eqdkp-plus.eu
  *
  *	Copyright (C) 2006-2015 EQdkp-Plus Developer Team
@@ -19,18 +19,26 @@
  *	along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-if ( !defined('EQDKP_INC') ){
-	header('HTTP/1.0 404 Not Found');exit;
+ 
+if (!defined('EQDKP_INC')) {
+	die('You cannot access this file directly.');
 }
 
-$lang = array(
-	'rssfeed'				=> 'RSS Feeds',
-	'rssfeed_name'			=> 'RSS Feed Module',
-	'rssfeed_desc'			=> 'Shows an RSS Feed in portal',
-	'rssfeed_f_limit'		=> 'Amount of feed items to show',
-	'rssfeed_f_url'			=> 'URL of the RSS Feed',
-	'pk_rssfeed_nourl'		=> 'Please setup a Feed first',
-	'rssfeed_length'		=> 'Amount of characters from feed to show',
-	'rssfeed_f_help_length'	=> 'If the feed-module becomes extreme wide, the problem may be a destroyed HTML-Tag, because of the limited characters. If there are many characters without a white-space in that tag, there will be no new line and so the whole left-column becomes very wide.',
+//Language: English	
+//Created by EQdkp Plus Translation Tool on  2014-12-17 21:28
+//File: portal/rssfeed/language/english.php
+//Source-Language: german
+
+$lang = array( 
+	"rssfeed" => 'RSS Feeds',
+	"rssfeed_name" => 'RSS Feed Module',
+	"rssfeed_desc" => 'Shows an RSS Feed in portal',
+	"rssfeed_f_limit" => 'Amount of feed items to show',
+	"rssfeed_f_url" => 'URL of the RSS Feed',
+	"pk_rssfeed_nourl" => 'Please setup a Feed first',
+	"rssfeed_f_length" => 'Number of chars that should be displayed from the text',
+	"rssfeed_f_help_length" => 'If the feed-module becomes extreme wide, the problem may be a destroyed HTML-Tag, because of the limited characters. If there are many characters without a white-space in that tag, there will be no new line and so the whole left-column becomes very wide.',
+	
 );
+
 ?>
