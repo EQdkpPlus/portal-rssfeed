@@ -97,7 +97,7 @@ class rssfeed_portal extends portal_generic {
 			$output = '<div id="rssfeed_module"></div>';
 
 			// JS Part
-			$this->jquery->rssFeeder('rssfeed_module', $this->server_path."portal/rssfeed/load.php".$this->SID."&loadrss=true", $pk_rssfeed_limit, $pk_rssfeed_length);
+			$this->jquery->rssFeeder('rssfeed_module', $this->server_path."portal/rssfeed/load.php".$this->SID."&loadrss=true&moduleid=".$this->id, $pk_rssfeed_limit, $pk_rssfeed_length);
 		}else{
 			$output  = $this->user->lang('pk_rssfeed_nourl');
 		}

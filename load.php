@@ -24,6 +24,8 @@ $eqdkp_root_path = './../../';
 include_once($eqdkp_root_path . 'common.php');
 
 if(registry::register('input')->get('loadrss')){
-	registry::register('jquery')->loadRssFeed(registry::register('core')->config('pk_rssfeed_url'));
+	$intModuleID = registry::register('input')->get('moduleid', 0);
+	$strFeedURL = register('config')->get('url', 'pmod_'.$intModuleID);
+	registry::register('jquery')->loadRssFeed($strFeedURL);
 }
 ?>
