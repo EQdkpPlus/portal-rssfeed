@@ -1,9 +1,9 @@
 <?php
 /*	Project:	EQdkp-Plus
- *	Package:	RSS Feed Portal Module
+ *	Package:	RSS Portal Module
  *	Link:		http://eqdkp-plus.eu
  *
- *	Copyright (C) 2006-2015 EQdkp-Plus Developer Team
+ *	Copyright (C) 2006-2018 EQdkp-Plus Developer Team
  *
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU Affero General Public License as published
@@ -19,18 +19,11 @@
  *	along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-if ( !defined('EQDKP_INC') ){
-	header('HTTP/1.0 404 Not Found');exit;
-}
+define('EQDKP_INC', true);
 
-$lang = array(
-		'rssfeed'				=> 'RSS Feeds',
-		'rssfeed_name'			=> 'RSS Feed Module',
-		'rssfeed_desc'			=> 'Zeigt einen RSS Feed im Portal an',
-		'rssfeed_f_limit'		=> 'Anzahl der Feedeinträge zur Anzeige',
-		'rssfeed_f_url'			=> 'URL des RSS Feeds',
-		'pk_rssfeed_nourl'		=> 'Es wurde kein Feed angegeben',
-		'rssfeed_f_length'		=> 'Anzahl Zeichen vom Feed zur Anzeige',
-		'rssfeed_f_layout'		=> 'Darstellung',
-);
+$eqdkp_root_path = './../../';
+include_once($eqdkp_root_path.'common.php');
+include_once($eqdkp_root_path . 'portal/rssfeed/rssfeed_rss.class.php');
+$rssfeed = registry::register('rssfeed_rss', array(registry::register('input')->get('mid')));
+$rssfeed->updateRSS();
 ?>

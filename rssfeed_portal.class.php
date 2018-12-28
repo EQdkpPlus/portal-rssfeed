@@ -1,9 +1,9 @@
 <?php
 /*	Project:	EQdkp-Plus
- *	Package:	RSS Feed Portal Module
+ *	Package:	RSS Portal Module
  *	Link:		http://eqdkp-plus.eu
  *
- *	Copyright (C) 2006-2015 EQdkp-Plus Developer Team
+ *	Copyright (C) 2006-2018 EQdkp-Plus Developer Team
  *
  *	This program is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU Affero General Public License as published
@@ -27,80 +27,78 @@ class rssfeed_portal extends portal_generic {
 
 	protected static $path		= 'rssfeed';
 	protected static $data		= array(
-		'name'			=> 'RSS Feed',
-		'version'		=> '3.0.0',
-		'author'		=> 'WalleniuM',
-		'icon'			=> 'fa-rss-square',
-		'contact'		=> EQDKP_PROJECT_URL,
-		'description'	=> 'Shows an RSS Feed in portal',
-		'lang_prefix'	=> 'rssfeed_'
+			'name'			=> 'RSS Feed',
+			'version'		=> '4.0.0',
+			'author'		=> 'GodMod',
+			'icon'			=> 'fa-rss-square',
+			'contact'		=> EQDKP_PROJECT_URL,
+			'description'	=> 'Shows an RSS Feed in portal',
+			'lang_prefix'	=> 'rssfeed_',
+			'multiple'		=> true,
 	);
 	protected static $positions = array('left1', 'left2', 'right');
 	protected $settings	= array(
-		'url'	=> array(
-			'type'		=> 'text',
-			'size'		=> '40',
-		),
-		'limit'	=> array(
-			'type'		=> 'text',
-			'size'		=> '5',
-		),
-		'length'	=> array(
-			'type'		=> 'text',
-			'size'		=> '3',
-		)
+			'url'	=> array(
+					'type'		=> 'text',
+					'size'		=> '40',
+			),
+			'limit'	=> array(
+					'type'		=> 'text',
+					'size'		=> '5',
+			),
+			'length'	=> array(
+					'type'		=> 'text',
+					'size'		=> '3',
+			),
+			'layout'	=> array(
+					'type'		=> 'dropdown',
+					'options'	=> array('direct' => 'Direct', 'accordion' => 'Accordion'),
+			)
 	);
 	protected static $install	= array(
-		'autoenable'		=> '1',
-		'defaultposition'	=> 'left2',
-		'defaultnumber'		=> '9',
+			'autoenable'		=> '1',
+			'defaultposition'	=> 'left2',
+			'defaultnumber'		=> '9',
 	);
 	
 	protected static $apiLevel = 20;
 
 	public function output() {
-		if($this->config('url')){
-			$pk_rssfeed_limit = ($this->config('limit')) ? $this->config('limit') : 5;
-			$pk_rssfeed_length = ($this->config('length')) ? $this->config('length') : 80;
-			$this->tpl->add_css("
-				#rssfeed_module{
-					margin:0;
-					padding:5px;
-					height:200px;
-					overflow: auto;
-				}
-				#rssfeed_module a {
-					color:#FF9900;
-					margin-bottom: 3px;
-				}
-				#rssfeed_module .rss_readmore{
-					font-size:10px;
-					margin-bottom: 5px;
-				}
-				#rssfeed_module .date{
-					color:#999999;
-					font-size:9px;
-					margin: 3px 0 3px 0;
-				}
-				#rssfeed_module .description{
-					margin:0;
-					padding:0;
-				}
-				#rssfeed_module .description p {
-					font-size:10px;
-				}
-				.mf-viral {display:none;}
-				.loading{
-					margin:25% 0% 0% 25%;
-					float:left;
-				}");
-			$output = '<div id="rssfeed_module"></div>';
-
-			// JS Part
-			$this->jquery->rssFeeder('rssfeed_module', $this->server_path."portal/rssfeed/load.php".$this->SID."&loadrss=true&moduleid=".$this->id, $pk_rssfeed_limit, $pk_rssfeed_length);
-		}else{
-			$output  = $this->user->lang('pk_rssfeed_nourl');
+		//Calculate Max Width
+		if($this->user->style['column_left_width'] != ""){
+			if(strpos($this->user->style['column_left_width'], 'px') !== false){
+				$max_width = (intval($this->user->style['column_left_width']) - 30).'px';
+			} else {
+				$max_width = '97%';
+			}
+			
+		} else {
+			$max_width = "180px";
 		}
+		
+		$this->tpl->add_css(
+			'.rssfeed_portal .ui-accordion .ui-accordion-content {
+				padding: 4px;
+			}
+			
+			.rssfeed-wrapper {
+				height:250px;
+				overflow: auto;
+			}
+
+			.rssfeed-content {
+				max-width: '.$max_width.';
+				word-wrap:break-word;
+				padding-top: 5px;
+			}
+
+			'	
+		);
+		
+		include_once($this->root_path .'portal/rssfeed/rssfeed_rss.class.php');
+		$class = registry::register('rssfeed_rss', array($this->id));
+		$output = $class->output;
+
 		return $output;
 	}
 }
