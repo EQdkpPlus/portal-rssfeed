@@ -69,6 +69,7 @@ class rssfeed_rss extends gen_class {
 		
 		if ($this->news){
 			$this->createOutput();
+		    }
 		}
 	}
 

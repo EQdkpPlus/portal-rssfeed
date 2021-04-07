@@ -28,7 +28,7 @@ class rssfeed_portal extends portal_generic {
 	protected static $path		= 'rssfeed';
 	protected static $data		= array(
 			'name'			=> 'RSS Feed',
-			'version'		=> '4.0.0',
+			'version'		=> '4.0.1',
 			'author'		=> 'GodMod',
 			'icon'			=> 'fa-rss-square',
 			'contact'		=> EQDKP_PROJECT_URL,
