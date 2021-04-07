@@ -60,8 +60,13 @@ class rssfeed_rss extends gen_class {
 		$this->rssurl = $this->config->get('url', 'pmod_'.$this->moduleID);
 		$this->layout = $this->config->get('layout', 'pmod_'.$this->moduleID);
 		$this->length = $this->config->get('length', 'pmod_'.$this->moduleID);
-
-		$this->parseXML($this->GetRSS($this->rssurl));
+		
+		if(!strlen($this->rssurl)) return;
+		$strContent = $this->GetRSS($this->rssurl);
+		
+		if(!$strContent || !strlen($strContent)) return;
+		$this->parseXML($strContent);
+		
 		if ($this->news){
 			$this->createOutput();
 		}
